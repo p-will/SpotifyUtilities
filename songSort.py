@@ -1,6 +1,7 @@
 #Plays songs to user and lets him pick to which playlist the track should be added
 
 
+import credentials
 import os
 import sys
 import spotipy
@@ -17,12 +18,12 @@ def trackInPlaylists(track,playlists):
 
 
 if __name__ == '__main__':
-    username=USERNAME
+    username=credentials.USERNAME
     token = util.prompt_for_user_token(username,
                                        SCOPE,
-                                       CLIENT_ID,
-                                       CLIENT_SECRET,
-                                       REDIRECT_URI)
+                                       credentials.CLIENT_ID,
+                                       credentials.CLIENT_SECRET,
+                                       credentials.REDIRECT_URI)
 
     if token:
         sp = spotipy.Spotify(auth=token)

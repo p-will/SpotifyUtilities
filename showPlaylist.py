@@ -1,6 +1,7 @@
 # shows a user's playlists (need to be authenticated via oauth)
 
 
+import credentials
 import os
 import sys
 import spotipy
@@ -21,12 +22,12 @@ if __name__ == '__main__':
         print("usage: python user_playlists.py [username]")
         sys.exit()
     '''
-    username=USERNAME
+    username=credentials.USERNAME
     token = util.prompt_for_user_token(username,
                                        SCOPE,
-                                       CLIENT_ID,
-                                       CLIENT_SECRET,
-                                       REDIRECT_URI)
+                                       credentials.CLIENT_ID,
+                                       credentials.CLIENT_SECRET,
+                                       credentials.REDIRECT_URI)
 
     if token:
         sp = spotipy.Spotify(auth=token)

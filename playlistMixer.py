@@ -1,6 +1,8 @@
 # mixes multiple playlists into a new one (need to be authenticated via oauth) 
 
+SCOPE = ''
 
+import credentials
 import os
 import sys
 import spotipy
@@ -42,7 +44,7 @@ def get_playlist_tracks(username,playlist_id,filter):
 
 if __name__ == '__main__':
     #get username(s) | possible multiple usernames 
-    pyperclip.copy(USERNAME)
+    pyperclip.copy(credentials.credentials.USERNAME)
     usernames=input("Please enter username(s): ").split(',')
     #name of playlistowner
     mainUser=usernames[0]
@@ -54,9 +56,9 @@ if __name__ == '__main__':
         print("Authorising user no {0}.".format(i+1))
         token = util.prompt_for_user_token(user,
                                         SCOPE,
-                                        CLIENT_ID,
-                                        CLIENT_SECRET,
-                                        REDIRECT_URI)
+                                        credentials.credentials.CLIENT_ID,
+                                        credentials.credentials.CLIENT_SECRET,
+                                        credentials.credentials.REDIRECT_URI)
 
         if token:
             sp = spotipy.Spotify(auth=token)
