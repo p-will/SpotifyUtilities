@@ -1,5 +1,6 @@
 # shows a user's playlists (need to be authenticated via oauth)
 
+SCOPE = 'playlist-read-private,playlist-modify-public'
 
 import credentials
 import os
